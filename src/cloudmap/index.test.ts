@@ -1,9 +1,9 @@
-import { getCloudMap } from "./index"
+import { DiscoverInstances } from "./index"
 
 describe('index', () => {
     it('index', async () => {
-        const req = await getCloudMap("vivoreco", "vivoreco");
+        const req = await DiscoverInstances("vivoreco", "vivoreco");
         console.log(req);
-        expect(getCloudMap).toBeDefined();
+        expect(DiscoverInstances).toBeDefined();
     });
 });
