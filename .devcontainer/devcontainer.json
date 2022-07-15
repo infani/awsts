@@ -11,6 +11,14 @@
 			"VARIANT": "16-bullseye"
 		}
 	},
+	"runArgs": [
+		"-v",
+		"${env:HOME}${env:USERPROFILE}/.aws:/home/node/.aws:rw",
+		"-v",
+		"${env:HOME}${env:USERPROFILE}/.ssh:/home/node/.ssh",
+		"-e",
+		"AWS_PROFILE=vsaas-sandbox"
+	],
 
 	// Configure tool-specific properties.
 	"customizations": {
