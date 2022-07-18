@@ -5,5 +5,8 @@ Object {
   "CloudMap": Object {
     "DiscoverInstances": [Function],
   },
+  "SSM": Object {
+    "GetParameter": [Function],
+  },
 }
 `;
