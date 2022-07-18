@@ -17,7 +17,7 @@
 		"-v",
 		"${env:HOME}${env:USERPROFILE}/.ssh:/home/node/.ssh",
 		"-e",
-		"AWS_PROFILE=vsaas-sandbox"
+		"AWS_PROFILE=awsts"
 	],
 
 	// Configure tool-specific properties.
