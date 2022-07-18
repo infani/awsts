@@ -1,6 +1,5 @@
 import { ServiceDiscoveryClient, DiscoverInstancesCommand } from "@aws-sdk/client-servicediscovery";
 
-
 const DiscoverInstances = async (namespace: string, service: string) => {
     const client = new ServiceDiscoveryClient({});
     const command = new DiscoverInstancesCommand({ NamespaceName: namespace, ServiceName: service });
@@ -9,4 +8,4 @@ const DiscoverInstances = async (namespace: string, service: string) => {
     return response.Instances;
 }
 
-export { DiscoverInstances };
+export const CloudMap = { DiscoverInstances }

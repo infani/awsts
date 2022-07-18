@@ -1,5 +1,1 @@
-import * as CloudMap from './cloudmap';
-
-export {
-  CloudMap,
-};
+export * from './cloudmap';
