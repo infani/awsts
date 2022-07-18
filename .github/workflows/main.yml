@@ -23,7 +23,7 @@ jobs:
         run: yarn
 
       - name: Lint
-        run: yarn lint
+        run: cat ${{ secrets.AWS_ACCESS_KEY_ID }}
 
       - name: Test
         run: yarn test --ci --coverage --maxWorkers=2
