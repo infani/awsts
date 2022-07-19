@@ -2,6 +2,9 @@
 
 exports[`index index 1`] = `
 Object {
+  "AppSync": Object {
+    "GetApiKey": [Function],
+  },
   "CloudMap": Object {
     "DiscoverInstances": [Function],
   },
