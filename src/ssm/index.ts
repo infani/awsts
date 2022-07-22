@@ -7,7 +7,6 @@ const GetParameter = async (name: string) => {
     WithDecryption: true,
   });
   const response = await client.send(command);
-  console.log(response);
   return response.Parameter;
 };
 

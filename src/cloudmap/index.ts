@@ -10,7 +10,6 @@ const DiscoverInstances = async (namespace: string, service: string) => {
     ServiceName: service,
   });
   const response = await client.send(command);
-  console.log(response);
   return response.Instances;
 };
 
