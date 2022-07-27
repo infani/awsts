@@ -8,6 +8,9 @@ Object {
   "CloudMap": Object {
     "DiscoverInstances": [Function],
   },
+  "Opensearch": Object {
+    "NewClient": [Function],
+  },
   "SSM": Object {
     "GetParameter": [Function],
   },

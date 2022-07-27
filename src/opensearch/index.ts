@@ -16,5 +16,4 @@ const NewClient = (url: string, user: string, password: string) => {
     }
 }
 
-const Opensearch = { NewClient }
-export default Opensearch
+export const Opensearch = { NewClient }

@@ -1,4 +1,4 @@
-import Opensearch from './index';
+import { Opensearch } from './index';
 
 describe('index', () => {
     it('index', async () => {
