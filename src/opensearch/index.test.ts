@@ -5,7 +5,7 @@ describe('index', () => {
         const url = "url"
         const user = "admin"
         const password = "password"
-        const client = await Opensearch.NewClient(url, user, password)
+        const client = Opensearch.NewClient(url, user, password)
         expect(client).toMatchSnapshot()
         // const res = await client.Create('test_create_5.7.27', {
         //     name: "vivoreco",
