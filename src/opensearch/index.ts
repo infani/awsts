@@ -2,14 +2,14 @@ import { Client } from '@opensearch-project/opensearch'
 
 const NewClient = (url: string, user: string, password: string) => {
     const client = new Client({
-        node: `https://${user}@${password}@${url}:9200`,
+        node: `https://${user}:${password}@${url}`,
     });
-    const Create = async (indexName: string, doc: any) => {
-        const res = await client.index({
+    const Create = (indexName: string, doc: any) => {
+        const res = client.index({
             index: indexName,
-            body: doc,
+            body: doc
         });
-        console.log(res.body);
+        return res
     }
     return {
         Create
