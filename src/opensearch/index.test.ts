@@ -7,10 +7,10 @@ describe('index', () => {
         const password = "password"
         const client = await Opensearch.NewClient(url, user, password)
         expect(client).toMatchSnapshot()
-        const res = await client.Create('test_create_5.7.27', {
-            name: "vivoreco",
-            year: "1980"
-        })
-        expect(res).toMatchSnapshot()
+        // const res = await client.Create('test_create_5.7.27', {
+        //     name: "vivoreco",
+        //     year: "1980"
+        // })
+        // console.log(res)
     });
 });
