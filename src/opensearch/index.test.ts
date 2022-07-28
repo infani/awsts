@@ -8,6 +8,7 @@ describe('index', () => {
         const client = Opensearch.NewClient(url, user, password)
         expect(client).toMatchSnapshot()
         // const res = await client.Create('test_create_5.7.27', {
+        //     Timestamp: new Date().toISOString(),
         //     name: "vivoreco",
         //     year: "1980"
         // })
