@@ -7,12 +7,12 @@ import {
 let UserPoolId: string
 let ClientId: string
 
-export const Configure = (userPoolId: string, clientId: string) => {
+const Configure = (userPoolId: string, clientId: string) => {
   UserPoolId = userPoolId
   ClientId = clientId
 }
 
-export const GetJwtToken = async (username: string, password: string) => {
+const GetJwtToken = async (username: string, password: string) => {
   var authenticationData = {
     Username: username,
     Password: password,
@@ -38,3 +38,5 @@ export const GetJwtToken = async (username: string, password: string) => {
     });
   });
 };
+
+export const Cognito = { Configure, GetJwtToken }

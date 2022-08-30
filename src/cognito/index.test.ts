@@ -1,4 +1,4 @@
-import * as Cognito from './index';
+import { Cognito } from './index';
 
 describe('index', () => {
   it('index', async () => {
