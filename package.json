@@ -31,7 +31,6 @@
     "trailingComma": "es5"
   },
   "name": "awsts",
-  "packageManager": "yarn@3.2.1",
   "author": "Ben",
   "module": "dist/awsts.esm.js",
   "size-limit": [
