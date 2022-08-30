@@ -8,6 +8,10 @@ Object {
   "CloudMap": Object {
     "DiscoverInstances": [Function],
   },
+  "Cognito": Object {
+    "Configure": [Function],
+    "GetJwtToken": [Function],
+  },
   "Opensearch": Object {
     "NewClient": [Function],
   },
