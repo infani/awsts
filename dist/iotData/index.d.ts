@@ -1,3 +1,3 @@
-export declare const CloudMap: {
-    DiscoverInstances: (namespace: string, service: string) => Promise<any>;
+export declare const IotData: {
+    Publish: (topic: string, msg: string) => Promise<import("@aws-sdk/client-iot-data-plane/dist-types/").PublishCommandOutput>;
 };

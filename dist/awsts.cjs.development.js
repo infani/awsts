@@ -7,6 +7,7 @@ var clientSsm = require('@aws-sdk/client-ssm');
 var clientAppsync = require('@aws-sdk/client-appsync');
 var opensearch = require('@opensearch-project/opensearch');
 var amazonCognitoIdentityJs = require('amazon-cognito-identity-js');
+var clientIotDataPlane = require('@aws-sdk/client-iot-data-plane');
 
 function _regeneratorRuntime() {
   /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
@@ -618,9 +619,46 @@ var Cognito = {
   GetJwtToken: GetJwtToken
 };
 
+var Publish = /*#__PURE__*/function () {
+  var _ref = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(topic, msg) {
+    var client, command, res;
+    return _regeneratorRuntime().wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            client = new clientIotDataPlane.IoTDataPlaneClient({});
+            command = new clientIotDataPlane.PublishCommand({
+              topic: topic,
+              payload: Buffer.from(msg)
+            });
+            _context.next = 4;
+            return client.send(command);
+
+          case 4:
+            res = _context.sent;
+            return _context.abrupt("return", res);
+
+          case 6:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+
+  return function Publish(_x, _x2) {
+    return _ref.apply(this, arguments);
+  };
+}();
+
+var IotData = {
+  Publish: Publish
+};
+
 exports.AppSync = AppSync;
 exports.CloudMap = CloudMap;
 exports.Cognito = Cognito;
+exports.IotData = IotData;
 exports.Opensearch = Opensearch;
 exports.SSM = SSM;
 //# sourceMappingURL=awsts.cjs.development.js.map
