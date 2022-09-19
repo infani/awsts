@@ -1,5 +1,5 @@
 {
-  "version": "5.8.30",
+  "version": "5.9.19",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -54,6 +54,7 @@
   },
   "dependencies": {
     "@aws-sdk/client-appsync": "^3.131.0",
+    "@aws-sdk/client-iot-data-plane": "^3.171.0",
     "@aws-sdk/client-servicediscovery": "^3.130.0",
     "@aws-sdk/client-ssm": "^3.131.0",
     "@opensearch-project/opensearch": "^2.0.0",
