@@ -1,9 +1,10 @@
 import { ServiceDiscoveryClient, DiscoverInstancesCommand } from '@aws-sdk/client-servicediscovery';
 import { SSMClient, GetParameterCommand } from '@aws-sdk/client-ssm';
 import { AppSyncClient, ListApiKeysCommand } from '@aws-sdk/client-appsync';
-import { Client } from '@opensearch-project/opensearch';
+import { Client as Client$1 } from '@opensearch-project/opensearch';
 import { AuthenticationDetails, CognitoUserPool, CognitoUser } from 'amazon-cognito-identity-js';
 import { IoTDataPlaneClient, PublishCommand } from '@aws-sdk/client-iot-data-plane';
+import { iot, mqtt } from 'aws-iot-device-sdk-v2';
 
 function _regeneratorRuntime() {
   /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
@@ -528,7 +529,7 @@ var AppSync = {
 };
 
 var NewClient = function NewClient(url, user, password) {
-  var client = new Client({
+  var client = new Client$1({
     node: "https://" + url,
     auth: {
       username: user,
@@ -647,8 +648,38 @@ var Publish = /*#__PURE__*/function () {
   };
 }();
 
+var Client = /*#__PURE__*/function () {
+  var _ref2 = /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(certFile, keyFile, caFile, endpoint) {
+    var config_builder, config, client;
+    return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            config_builder = iot.AwsIotMqttConnectionConfigBuilder.new_mtls_builder_from_path(certFile, keyFile);
+            config_builder.with_certificate_authority_from_path(undefined, caFile);
+            config_builder.with_clean_session(false);
+            config_builder.with_client_id("test-" + Math.floor(Math.random() * 100000000));
+            config_builder.with_endpoint(endpoint);
+            config = config_builder.build();
+            client = new mqtt.MqttClient();
+            return _context2.abrupt("return", client.new_connection(config));
+
+          case 8:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2);
+  }));
+
+  return function Client(_x3, _x4, _x5, _x6) {
+    return _ref2.apply(this, arguments);
+  };
+}();
+
 var IotData = {
-  Publish: Publish
+  Publish: Publish,
+  Client: Client
 };
 
 export { AppSync, CloudMap, Cognito, IotData, Opensearch, SSM };
