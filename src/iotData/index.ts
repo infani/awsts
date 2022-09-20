@@ -16,7 +16,7 @@ const Publish = async (topic: string, msg: string) => {
   return res;
 };
 
-const Client = async (certFile: string, keyFile: string, caFile: string, endpoint: string) => {
+const Client = (certFile: string, keyFile: string, caFile: string, endpoint: string) => {
   let config_builder = iot.AwsIotMqttConnectionConfigBuilder.new_mtls_builder_from_path(certFile, keyFile);
   config_builder.with_certificate_authority_from_path(undefined, caFile);
 
