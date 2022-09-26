@@ -3,8 +3,7 @@ import {
   PublishCommand,
 } from '@aws-sdk/client-iot-data-plane';
 
-import { mqtt } from 'aws-iot-device-sdk-v2';
-import { iot } from 'aws-iot-device-sdk-v2';
+import { mqtt, iot } from 'aws-iot-device-sdk-v2';
 
 const Publish = async (topic: string, msg: string) => {
   const client = new IoTDataPlaneClient({});

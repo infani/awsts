@@ -7,14 +7,18 @@ describe('index', () => {
   });
 
   it('Client', async () => {
-    const cli = IotData.Client(
-      './src/iotData/certificate.pem.crt',
-      './src/iotData/private.pem.key',
-      './src/iotData/AmazonRootCA1.pem',
-      'a1whrgfehabj9-ats.iot.ap-northeast-1.amazonaws.com'
-    );
-    await cli.connect()
-    await cli.publish("test", 'test2', 0)
-    await cli.disconnect()
+    try {
+      const cli = IotData.Client(
+        './src/iotData/certificate.pem.crt',
+        './src/iotData/private.pem.key',
+        './src/iotData/AmazonRootCA1.pem',
+        'a1whrgfehabj9-ats.iot.ap-northeast-1.amazonaws.com'
+      );
+      await cli.connect()
+      await cli.publish("test", 'test2', 0)
+      await cli.disconnect()
+    } catch (error) {
+      console.log(error)  
+    }
   });
 });
