@@ -1,10 +1,9 @@
 import { ServiceDiscoveryClient, DiscoverInstancesCommand } from '@aws-sdk/client-servicediscovery';
 import { SSMClient, GetParameterCommand } from '@aws-sdk/client-ssm';
 import { AppSyncClient, ListApiKeysCommand } from '@aws-sdk/client-appsync';
-import { Client as Client$1 } from '@opensearch-project/opensearch';
+import { Client } from '@opensearch-project/opensearch';
 import { AuthenticationDetails, CognitoUserPool, CognitoUser } from 'amazon-cognito-identity-js';
 import { IoTDataPlaneClient, PublishCommand } from '@aws-sdk/client-iot-data-plane';
-import { iot, mqtt } from 'aws-iot-device-sdk-v2';
 
 function _regeneratorRuntime() {
   /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
@@ -529,7 +528,7 @@ var AppSync = {
 };
 
 var NewClient = function NewClient(url, user, password) {
-  var client = new Client$1({
+  var client = new Client({
     node: "https://" + url,
     auth: {
       username: user,
@@ -646,22 +645,20 @@ var Publish = /*#__PURE__*/function () {
   return function Publish(_x, _x2) {
     return _ref.apply(this, arguments);
   };
-}();
+}(); // const Client = (certFile: string, keyFile: string, caFile: string, endpoint: string) => {
+//   let config_builder = iot.AwsIotMqttConnectionConfigBuilder.new_mtls_builder_from_path(certFile, keyFile);
+//   config_builder.with_certificate_authority_from_path(undefined, caFile);
+//   config_builder.with_clean_session(false);
+//   config_builder.with_client_id("test-" + Math.floor(Math.random() * 100000000));
+//   config_builder.with_endpoint(endpoint);
+//   const config = config_builder.build();
+//   const client = new mqtt.MqttClient();
+//   return client.new_connection(config);
+// }
 
-var Client = function Client(certFile, keyFile, caFile, endpoint) {
-  var config_builder = iot.AwsIotMqttConnectionConfigBuilder.new_mtls_builder_from_path(certFile, keyFile);
-  config_builder.with_certificate_authority_from_path(undefined, caFile);
-  config_builder.with_clean_session(false);
-  config_builder.with_client_id("test-" + Math.floor(Math.random() * 100000000));
-  config_builder.with_endpoint(endpoint);
-  var config = config_builder.build();
-  var client = new mqtt.MqttClient();
-  return client.new_connection(config);
-};
 
 var IotData = {
-  Publish: Publish,
-  Client: Client
+  Publish: Publish
 };
 
 export { AppSync, CloudMap, Cognito, IotData, Opensearch, SSM };

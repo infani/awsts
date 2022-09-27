@@ -13,7 +13,6 @@ Object {
     "GetJwtToken": [Function],
   },
   "IotData": Object {
-    "Client": [Function],
     "Publish": [Function],
   },
   "Opensearch": Object {

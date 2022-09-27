@@ -8,7 +8,6 @@ var clientAppsync = require('@aws-sdk/client-appsync');
 var opensearch = require('@opensearch-project/opensearch');
 var amazonCognitoIdentityJs = require('amazon-cognito-identity-js');
 var clientIotDataPlane = require('@aws-sdk/client-iot-data-plane');
-var awsIotDeviceSdkV2 = require('aws-iot-device-sdk-v2');
 
 function _regeneratorRuntime() {
   /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
@@ -650,22 +649,20 @@ var Publish = /*#__PURE__*/function () {
   return function Publish(_x, _x2) {
     return _ref.apply(this, arguments);
   };
-}();
+}(); // const Client = (certFile: string, keyFile: string, caFile: string, endpoint: string) => {
+//   let config_builder = iot.AwsIotMqttConnectionConfigBuilder.new_mtls_builder_from_path(certFile, keyFile);
+//   config_builder.with_certificate_authority_from_path(undefined, caFile);
+//   config_builder.with_clean_session(false);
+//   config_builder.with_client_id("test-" + Math.floor(Math.random() * 100000000));
+//   config_builder.with_endpoint(endpoint);
+//   const config = config_builder.build();
+//   const client = new mqtt.MqttClient();
+//   return client.new_connection(config);
+// }
 
-var Client = function Client(certFile, keyFile, caFile, endpoint) {
-  var config_builder = awsIotDeviceSdkV2.iot.AwsIotMqttConnectionConfigBuilder.new_mtls_builder_from_path(certFile, keyFile);
-  config_builder.with_certificate_authority_from_path(undefined, caFile);
-  config_builder.with_clean_session(false);
-  config_builder.with_client_id("test-" + Math.floor(Math.random() * 100000000));
-  config_builder.with_endpoint(endpoint);
-  var config = config_builder.build();
-  var client = new awsIotDeviceSdkV2.mqtt.MqttClient();
-  return client.new_connection(config);
-};
 
 var IotData = {
-  Publish: Publish,
-  Client: Client
+  Publish: Publish
 };
 
 exports.AppSync = AppSync;
